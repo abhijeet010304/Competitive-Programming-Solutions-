@@ -1,5 +1,5 @@
 /*
-Brute force using sorting 
+Brute force using sorting
 */
 class Solution {
 public:
@@ -26,5 +26,64 @@ public:
             p2++;
         }
         return ans ;
+    }
+};
+
+/*
+using map
+*/
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int n = nums.size(),i;
+        unordered_map<int,int> mp;
+        for(i=0;i<n;i++){
+            mp[nums[i]]=1;
+        }
+        int ans = 0;
+        for(i=0;i<n;i++){
+
+            if(mp[nums[i]-1]!=1){
+                int check = nums[i],count =0;
+
+                while(mp[check]==1){
+
+                    check++;
+                    count++;
+                }
+                ans = max(ans,count);
+            }
+        }
+        return ans;
+    }
+};
+
+
+/*
+using set
+*/
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        int n = nums.size(),i;
+        unordered_set<int> st;
+        for(i=0;i<n;i++){
+            st.insert(nums[i]);
+        }
+        int ans = 0;
+        for(i=0;i<n;i++){
+
+            if(st.count(nums[i]-1)==0){
+                int check = nums[i],count =0;
+
+                while(st.count(check)==1){
+
+                    check++;
+                    count++;
+                }
+                ans = max(ans,count);
+            }
+        }
+        return ans;
     }
 };
