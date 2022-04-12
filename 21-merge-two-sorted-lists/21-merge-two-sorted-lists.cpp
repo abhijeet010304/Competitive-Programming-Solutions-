@@ -14,7 +14,7 @@ public:
         if(!list1)return list2;
         if(!list2)return list1;
         ListNode* start = NULL, *last = NULL, *h1  = list1, *h2 = list2;
-        if(!start and !last and h1->val<=h2->val){
+        if(h1->val<=h2->val){
             start = h1;
             last = h1;
             h1 = h1->next;
