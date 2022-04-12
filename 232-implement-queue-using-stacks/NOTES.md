@@ -1,0 +1,1 @@
+I wrote some intresting solution using one stack !
